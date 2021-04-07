@@ -5,20 +5,20 @@ const projectID = '58dd51d0-2ce9-4f34-88d4-d3134a8b5592';
 
 const Modal = () => {
 
-    const [userName, setUserName] = useState('');
+    const [username, setn] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
     const handleSubmit = async (e) => {
-        e.preventdefault();
-        const authObject = {'Project-ID': projectID, 'User-Name': userName, 'User-Secret': password};
+        e.preventDefault();
+        const authObject = {'Project-ID': projectID, 'User-Name': username, 'User-Secret': password};
 
         try {
             //username | password => chatering -> give messages
             await axios.get('https://api.chatengine.io/chats', {headers:authObject});
             
             //works out -> logged in
-            localStorage.setItem('userName',userName);
+            localStorage.setItem('userName',username);
             localStorage.setItem('password',password);
 
             window.location.reload();
@@ -38,7 +38,7 @@ const Modal = () => {
                 <form onSubmit={handleSubmit}>
                     <input 
                         type="text"
-                        value={userName}
+                        value={username}
                         onChange={(e) => setUserName(e.target.value)}
                         className="input"
                         placeholder="Usuario"
