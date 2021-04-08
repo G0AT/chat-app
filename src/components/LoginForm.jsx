@@ -52,7 +52,7 @@ const Modal = () => {
                     />
                     <div align="center">
                         <button type="submit" className="button">
-                            <span>Start chatting</span>
+                            <span>Comienza la charla...</span>
                         </button>
                     </div>
                 </form>

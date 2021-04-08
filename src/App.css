@@ -103,10 +103,6 @@
   margin-left: 18px;
 }
 
-.message-block {
-  width: 100%;
-  display: inline-block;
-}
 
 .message-avatar {
   width: 44px;
@@ -136,17 +132,6 @@
   max-width: 200px;
   min-height: 100px;
   min-width: 100px;
-}
-
-
-.read-receipt {
-  width: 13px;
-  height: 13px;
-  border-radius: 13px;
-  margin: 1.5px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 14px;
 }
 
 .message-form-container {
