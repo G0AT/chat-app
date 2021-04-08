@@ -11,10 +11,12 @@ const MessageForm = (props) => {
 
         const text = value.trim();
 
-        if(text.lenght > 0) sendMessage(creds, chatId, {text});
+        if(text.lenght > 0) {
+            sendMessage(creds, chatId, {text});
+        }
 
         setValue('');
-    }
+    };
 
     const handleChange = (event) => {
         setValue(event.target.value);
@@ -22,14 +24,13 @@ const MessageForm = (props) => {
     }
 
     const handleUpload = (event) => {
-        sendMessage(creds, chatId, {files:event.target.files, text:''})
-    }
+        sendMessage(creds, chatId, {files:event.target.files, text:''});
+    };
      
 
     return (
         <form className="message-form" onSubmit={handleSubmit}>
             <input 
-                type="text" 
                 className="message-input"
                 placeholder="Escriba un mensaje"
                 value={value}
@@ -46,15 +47,13 @@ const MessageForm = (props) => {
                 multiple={false}
                 id="upload-button"
                 style={{display:'none'}}   
-                onChange={handleUpload}
-            >
-                false
-            </input>
+                onChange={handleUpload.bind(this)}
+            />
             <button type="submit" className="send-button">
                 <SendOutlined className="send-icon"/>
             </button>
         </form>
-    )
-}
+    );
+};
 
-export default MessageForm
+export default MessageForm;

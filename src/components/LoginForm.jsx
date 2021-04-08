@@ -5,7 +5,7 @@ const projectID = '58dd51d0-2ce9-4f34-88d4-d3134a8b5592';
 
 const Modal = () => {
 
-    const [username, setn] = useState('');
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
@@ -18,7 +18,7 @@ const Modal = () => {
             await axios.get('https://api.chatengine.io/chats', {headers:authObject});
             
             //works out -> logged in
-            localStorage.setItem('userName',username);
+            localStorage.setItem('username',username);
             localStorage.setItem('password',password);
 
             window.location.reload();
@@ -27,9 +27,7 @@ const Modal = () => {
             //error -> try with new username...
             setError('Oops, credenciales incorrectas');
         }
-
-
-    }
+    };
     
     return ( 
         <div className="wrapper">
@@ -39,9 +37,9 @@ const Modal = () => {
                     <input 
                         type="text"
                         value={username}
-                        onChange={(e) => setUserName(e.target.value)}
+                        onChange={(e) => setUsername(e.target.value)}
                         className="input"
-                        placeholder="Usuario"
+                        placeholder="Username"
                         required
                     />
                     <input 
@@ -49,11 +47,13 @@ const Modal = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         className="input"
-                        placeholder="Contraseña"
+                        placeholder="Password"
                         required
                     />
                     <div align="center">
-                        <button type="submit" className="button">Comencemos a charlar</button>
+                        <button type="submit" className="button">
+                            <span>Start chatting</span>
+                        </button>
                     </div>
                 </form>
                 <h2 className="error">{error}</h2>
